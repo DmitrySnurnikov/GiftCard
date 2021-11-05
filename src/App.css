@@ -1,0 +1,193 @@
+/* h1,h2,h3,p{
+  margin: 0;
+  padding: 0;
+} */
+li{
+  text-decoration: none;
+  list-style-type: none;
+}
+.content{
+padding-bottom: 60px;
+width: 600px;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: #fff;
+}
+/* GiftCard */
+.content-giftcards{
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid rgb(226, 231, 230); */
+  width: 600px;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+  background-color: rgb(226, 231, 230);
+}
+.giftcard{
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.giftcard-title{
+  display: flex;
+  /* flex-direction: row; */
+  padding: 10px;
+  /* justify-content: space-around; */
+}
+.giftcard-title li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  background-color: #fff;
+  margin: 0 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+.giftcard-title li h4{
+  font-size: 10px;
+  font-weight: 400;
+  margin: 0;
+}
+/* GiftCard End*/
+
+/* Form */
+.content-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.text-title{
+  width: 500px;
+  padding: 0;
+}
+.text-title-cost{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.text-title-cost li{
+  border: 1px solid #000;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+}
+.text-title-cost li:hover{
+  background-color: #D0D0D0;
+}
+
+.form-title{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  justify-content: space-between;
+}
+.form-title li{
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  padding-bottom: 10px;
+}
+.form-title li label{
+  padding-bottom: 10px;
+}
+.form-title li input{
+  height: 25px;
+  border: 1px solid #D0D0D0;
+}
+/* Form End */
+
+/* Delivery */
+
+.delivery-choose{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+  padding: 0;
+}
+/* Delivery End */
+
+/* Message */
+.content-delivery{
+  width: 500px;
+}
+.content-textarea{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+.content-textarea label{
+  padding-bottom: 10px;
+}
+.content-textarea textarea{
+  height: 100px;
+  width: 496px;
+  padding: 0;
+  margin-bottom: 10px;
+}
+/* Message  End*/
+
+/* Button */
+.content-quantity{
+  display: flex;
+  width: 500px;
+  height: 30px;
+  justify-content: space-between;
+}
+.content-qty{
+  display: flex;
+  width: 80px;
+  height: 30px;
+  align-items: center;
+}
+.content-qty label{
+  margin-right: 10px;
+}
+.title-qty{
+  width: 60px;
+  display: flex;
+  font-display: row;
+}
+.title-qty input{
+  width: 20px;
+  height: 20px;
+}
+.title-qty div{
+  width: 20px;
+  height: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2px;
+}
+.button-qty-plus, .button-qty-minus{
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #D95632;
+  color: #fff;
+  border: none;
+}
+/* Button End */
+/* ADD to Cart */
+.button-AddtoCart{
+  width: 80%;
+  background-color: #D95632;
+  color: #fff;
+  border: none;
+}
+/* ADD to Cart End */
