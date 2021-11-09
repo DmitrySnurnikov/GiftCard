@@ -1,15 +1,11 @@
 import React from 'react'
 import Button from './Field/Button/Button';
 import Text from './Field/Text/Text';
-import Delivery from './Field/Delivery/Delivery';
-import Textarea from './Field/Textarea/Textarea';
-function Form() {
+function Form({giftcard}) {
     return (
         <div className={'content-form'}>
-            <Text />
-            <Delivery />
-            <Textarea />
-            <Button />
+            <Text fields={giftcard.fields}/>
+            <Button button={giftcard.button} qty={giftcard.qty}/>
         </div>
     )
 }

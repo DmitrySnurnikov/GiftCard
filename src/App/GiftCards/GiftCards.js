@@ -1,22 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Header from './Header/Header';
 import GiftCard from './GiftCard/GiftCard';
-import Slider from './Slider/Slider';
+import Sliders from './Slider/Slider';
 import '../../App.css';
-function GiftCards() {
-
+function GiftCards({geft}) {
+    const[name,setName] = useState()
+    let checkCart=(index)=>{
+        setName(index)
+    }
     return (
-        <div className={'content-giftcards'}>
-            <div className={'giftcards-header'}>
-                <Header/>
+        <>
+            <div className={'content-giftcards'}>
+                <div className={'giftcards-header'}>
+                    <Header title={geft.title} description={geft.description}/>
+                </div>
+                <div className={'giftcards-slider'}>
+                    <Sliders giftcards={geft.giftcards} checkCart={checkCart}/>
+                </div> 
             </div>
-            <div className={'giftcards-slider'}>
-                <Slider />
+            <div className={'content-gift'}>
+                <div className={'giftcard'}>
+                    <GiftCard  name={name} giftcards={geft.giftcards}/>
+                </div>  
             </div>
-            <div className={'giftcard'}>
-                <GiftCard />
-            </div>   
-        </div>
+        </>
     )
 }
 

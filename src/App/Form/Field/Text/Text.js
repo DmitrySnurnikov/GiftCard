@@ -1,46 +1,27 @@
 import React from 'react'
-
-function Text() {
-    let cardAmoint = 
-    <div>
-        <span>Gift Card Amount</span>
-        <ul className={'text-title-cost'}>
-            <li>
-                <label>$25</label>
-            </li>
-            <li>
-                <label>$50</label>
-            </li>
-            <li>
-                <label>$75</label>
-            </li>
-            <li>
-                <label>$100</label>
-            </li>
-        </ul>
-    </div>
-    let cardForm = <ul className={'form-title'}>
-        <li>
-            <label>Your Name</label>
-            <input type={'text'} placeholder={'Your Name'}/>
+import Delivery from '../Delivery/Delivery'
+function Text({fields}) {
+    let text = fields.map((item,i)=>{
+        if(item.label === 'Message'){
+            return <li key={i}>
+            <label>{item.label}</label>
+            <textarea type={item.type} placeholder={item.placeholder} name={item.name} required={item.required}/>
         </li>
-        <li>
-            <label>Your Email</label>
-            <input type={'text'} placeholder={'Your Email'}/>
+        }else if(item.label === "Delivery"){
+            return <li><Delivery /></li>    
+        }else{
+            return <li key={i}>
+            <label>{item.label}</label>
+            <input className={"class" + item.class} type={item.type} placeholder={item.label} name={item.name} required={item.required}/>
         </li>
-        <li>
-            <label>Recipient Name</label>
-            <input type={'text'} placeholder={'Recipient Name'}/>
-        </li>
-        <li>
-            <label>Recipient Email</label>
-            <input type={'text'} placeholder={'Recipient Email'}/>
-        </li>
-    </ul>
+        }    
+    })
+    
     return (
         <div className={'text-title'}>
-            {cardAmoint}
-            {cardForm}
+            <ul className={'form-title'}>
+                {text}
+            </ul>    
         </div>
     )
 }

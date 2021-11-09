@@ -1,19 +1,20 @@
 import React from 'react'
 
 function Delivery() {
+    
     return (
-        <div className={'content-delivery'}>
+        <div >
             <label>Delivery</label>
-            <ul className={'delivery-choose'}>
-                <li>
-                    <input type={'radio'} checked/>
+            <div className={'delivery-choose'}>
+                <div>
+                    <input type={'radio'} id={"instantly"}/>
                     Send Instantly
-                </li>
-                <li>
-                    <input type={'radio'}/>
+                </div>
+                <div>
+                    <input type={'radio'} id={"future_date"} />
                     Send on a Future Date
-                </li>
-            </ul>
+                </div> 
+            </div>
         </div>
     )
 }

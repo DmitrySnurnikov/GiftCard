@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Header() {
+function Header({description, title}) {
     return (
         <> 
-            <h1>Give the Perfect Gift</h1>
-            <span>Congue mauris pretium elementum nulla ut.</span>
+            <h1>{title}</h1>
+            <span>{description}</span>
         </>
     )
 }
