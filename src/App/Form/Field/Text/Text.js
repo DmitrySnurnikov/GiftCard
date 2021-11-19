@@ -1,29 +1,51 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Delivery from '../Delivery/Delivery'
 function Text({fields}) {
-    let text = fields.map((item,i)=>{
-        if(item.label === 'Message'){
-            return <li key={i}>
-            <label>{item.label}</label>
-            <textarea type={item.type} placeholder={item.placeholder} name={item.name} required={item.required}/>
+
+
+    var checkedValue=(e)=>{
+        if(e.target.type == "text" && e.target.value.match(/^[a-zA-Z_ ]*$/)){
+            console.log("e",e.target.value)
+        }
+        
+    }
+
+    let unitBlock = fields.map((field,index)=>{
+        if(field.class){
+            return <li key={index} className={"MR_field" +" "+ field.class}>
+            <span>{field.label}</span>
+            <input type={field.type} name={field.name} placeholder={field.label} onChange={(e)=>checkedValue(e)} required={field.required}/>
         </li>
-        }else if(item.label === "Delivery"){
-            return <li><Delivery /></li>    
+        }else if(field.placeholder){
+            if(field.type === "textarea"){
+                return <li key={index} className={"MR_field"}>
+                <span>{field.label}</span>
+                <textarea type={field.type} placeholder={field.placeholder} name={field.name} id={field.name} pattern={"[A-Za-z]"} required={field.required}/>
+                </li>
+            }else{
+                return <li key={index} className={"MR_field"}>
+            <span>{field.label}</span>
+            <input type={field.type} name={field.name} placeholder={field.placeholder} onChange={(e)=>checkedValue(e)} required={field.required}/>
+            </li>
+            } 
+        }else if(field.type == "delivery"){
+           return <Delivery name={field.name} type={field.type} label={field.label}/>
         }else{
-            return <li key={i}>
-            <label>{item.label}</label>
-            <input className={"class" + item.class} type={item.type} placeholder={item.label} name={item.name} required={item.required}/>
+            return <li key={index} className={"MR_field"}>
+            <span>{field.label}</span>
+            <div className={"MR_errorMessage"}>Please enter a valid Name</div>
+            <input type={field.type} name={field.name} placeholder={field.label} onChange={(e)=>checkedValue(e)}required={field.required}/>
         </li>
-        }    
+        }
+        
     })
-    
     return (
-        <div className={'text-title'}>
-            <ul className={'form-title'}>
-                {text}
-            </ul>    
+        <div className={"MR_fields"}>
+            <ul className={"MR_fields-title"}>
+                {unitBlock}
+            </ul>
         </div>
     )
 }
 
-export default Text;
+export default Text

@@ -1,37 +1,32 @@
-import React, {useState} from 'react'
+import React,{useState} from 'react'
 
-function Button({button,qty}) {
-const[count, setCount] = useState(1)
-    let inputQTY = document.querySelector('[class*="qty"] [type*="number"]');   
-    let setDown = ()=>{
-        setCount(count+1)   
+function Button({button}) {
+    const[count,setCount] = useState(1)
+    const incrementCount=()=>{
+        setCount(count+1);
     }
-    let setUp = ()=>{
-        setCount(count-1)
+    const decrementCount=()=>{
+        setCount(Math.max(count-1,1))
     }
-    let ChangeValue = ()=>{
-        setCount(+inputQTY.value)  
+    const changeValue=(e)=>{
+        setCount(e.target.value)
     }
-    let  BtnClick = ()=>{
+    const handleClickBtn=()=>{
+        console.log("addtocart")
     }
-    
-    (inputQTY) ? (inputQTY.value = count) : (inputQTY=1);
-    console.log("count", count)
     return (
-        <div className={'content-quantity'}>
-            <div className={'content-qty'}>
-                <label>{qty.title}</label>
-                <div className={'title-qty'}>
-                    <input className={'qty'} type={'number'}  min={'1'} pattern={"[1-9]*"} onChange={()=> ChangeValue()}/>  
-                    <div>
-                        <button className={'button-qty-plus'} onClick={()=>setDown()}>+</button>
-                        <button className={'button-qty-minus'} onClick={()=>setUp()}>-</button>
-                    </div>   
-                </div>
+       <div className={"MR_AddToCart-title"}>
+        <div className={"MR_AddToCart-qty"}>
+            <span>Qty</span>
+            <input type={"text"} min={1} value={count} onChange={(e)=>changeValue(e)}/>
+            <div className={"MR_button-difference"}>
+                <button type={'button'} className={"MR_button-plus"} onClick={()=>incrementCount()}>+</button>
+                <button type={'button'} className={"MR_button-minus"} onClick={()=>decrementCount()}>-</button>
             </div>
-            <button className={'button-AddtoCart'} onClick={()=> BtnClick()}>{button.title}</button>
-        </div>
+        </div> 
+        <button type={'button'} className={"MR_button-addToCart" +" "+button.class} onClick={()=>{handleClickBtn()}}>{button.title}</button>
+       </div>
     )
 }
 
-export default Button;
+export default Button

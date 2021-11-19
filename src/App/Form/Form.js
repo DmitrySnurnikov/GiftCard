@@ -1,13 +1,15 @@
 import React from 'react'
 import Button from './Field/Button/Button';
 import Text from './Field/Text/Text';
-function Form({giftcard}) {
-    return (
-        <div className={'content-form'}>
-            <Text fields={giftcard.fields}/>
-            <Button button={giftcard.button} qty={giftcard.qty}/>
-        </div>
-    )
-}
-
-export default Form;
+    function Form({fields,button}) {
+        console.log("gif",button)
+        return (
+            <form>
+            <Text fields={fields}/>
+            <Button button={button}/>
+            </form>
+        )
+    }
+    
+    export default Form
+    

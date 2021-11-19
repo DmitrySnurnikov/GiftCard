@@ -7,13 +7,13 @@ import '../App.css';
 function App() {
 const [giftcard,setGiftCard] = useState();
 const [load, setLoad] = useState(true);
-
+const [cardName,setCardName] = useState();
+const [cardCost, setCardCost] = useState();
   useEffect(()=>{
     async function getCard(){
-      // let hash = document.getElementById('cart-qty-checker').dataset.mrHash;
-      let storeGift = 'https://mocki.io/v1/c780c862-2596-4d7c-b3c8-84f5588bbd2c';
-      // let response = await fetch(storeHouseUrl+hash+'&sku='+skus.join(","));
-      let response = await fetch(storeGift)
+      let hash = document.getElementById('mr-purchase-giftcard').dataset.mrHash;
+      let storeGift = 'https://devwidget.modernretail.com/gf/sample.php?hash=';
+      let response = await fetch(storeGift+hash);
       if(response.ok){ 
         let data = await response.json();
         setGiftCard(data);
@@ -22,11 +22,17 @@ const [load, setLoad] = useState(true);
     }
     getCard();
   },[]);
+  const giftcardName = (name)=>{
+    setCardName(name);
+  }
+  const giftcardCost = (value)=>{
+    setCardCost(value)
+  }
   let page = ()=>{
     return(
       <>
-        <GiftCards geft={giftcard}/> 
-        <Form giftcard={giftcard}/>
+        <GiftCards gift={giftcard} giftcardName={giftcardName} giftcardCost={giftcardCost}/> 
+        <Form fields={giftcard.fields}  button={giftcard.button}cardName={cardName} cardCost={cardCost}/>
       </>
     )
   }
@@ -34,7 +40,7 @@ const [load, setLoad] = useState(true);
   console.log("data", giftcard)
   return (
     <>
-      <div className={'content'}>
+      <div className={'MR_content'}>
         {load ? <Loader type="Circles" color="#00BFFF" height={80} width={80}/> : (page())} 
       </div>
     </>

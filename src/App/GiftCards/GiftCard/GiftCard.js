@@ -1,30 +1,34 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-function GiftCard({name,giftcards}) {
-    var cost;
-    console.log("name",giftcards[0].variants)
-    if(name){
-         giftcards.map((card,index) => {
-            if(card.name === name){
-                cost = card.variants.map((item,idex)=>{
-                    return <li key={idex} sku={item.sku}>{item.value}$</li>
-                })
-            }
-        })
-    }else{
-        cost = giftcards[0].variants.map((item,idex)=>{
-            return <li key={idex} sku={item.sku}>{item.value}$</li>
-        })
+function GiftCard({indexCard,giftcards,getCost}) {
+    const[costCard,setCostCard] = useState()
+    let priceCard;
+    const choiceCost=(e)=>{
+        setCostCard(e.target.innerText);
+        getCost && getCost(e.target.innerText)
     }
-     
+
+    giftcards.map((card,index)=>{
+        if(indexCard === index){
+            priceCard = card.variants.map((cost,index)=>{
+                return    <li key={index}
+                className={(costCard == cost.value)? "MR_choice-cost-active":"MR_choice-cost"}
+                sku={cost.sku}
+                onClick={(e)=>choiceCost(e)}>
+                <label>{cost.value}</label>
+                </li>
+            })
+        }
+    })
+
     return (
-        <div className={'text-title'}>
-            <span>Gift Card Amount</span>
-            <ul className={'text-title-cost'}>
-                {cost}
+        <div className={"MR_costCard"}>
+            <label>Gift Card Amount</label>
+            <ul className={'MR_cost'}>
+                {priceCard}
             </ul>
         </div>
     )
 }
 
-export default GiftCard;
+export default GiftCard
