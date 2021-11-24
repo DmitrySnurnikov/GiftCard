@@ -1,3 +1,15 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  background: #F4F4F4;
+  color: #333333;
+}
+
+
 h1,h2,h3,a,p,li,ul,button{
     padding: 0;
     margin: 0;
@@ -243,7 +255,7 @@ h1,h2,h3,a,p,li,ul,button{
     flex-direction: column;
     margin-bottom: 22px;
 }
-.MR_field>span{
+.MR_field>label{
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -296,11 +308,16 @@ h1,h2,h3,a,p,li,ul,button{
     display: flex;
     flex-direction: row;
     width: 450px;
-    justify-content: space-around;
-    margin-bottom: 13px;
+    margin-bottom: 2px;
 }
-.MR_delivery-title>li{
+
+.MR_delivery-title>li:first-child{
     height: 17px;
+    margin-left: 30px;
+}
+.MR_delivery-title>li:last-child{
+    height: 17px;
+    margin-left: 83px;
 }
 .MR_delivery-title>li>label{
     font-style: normal;
@@ -320,20 +337,29 @@ h1,h2,h3,a,p,li,ul,button{
     line-height: 18px;
     cursor: pointer;
 }
-.MR_delivery>:last-child, .MR_delivery-active>:last-child{
-    margin-left: auto;
-}
+
 .MR_hideBlock{
     display: none;
     visibility: hidden;
 }
 .MR_showBlock{
+    margin-left: auto;
     display: initial;
     visibility: visible;
+    display: flex;
+    flex-direction: column;
+    margin-top: 18px;
 }
+.MR_showBlock>input{
+    padding-left: 10px;
+}
+
 [type="date"] {
     background:#fff url("data:image/svg+xml,%3Csvg width='19' height='20' viewBox='0 0 19 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.46154 18.5714H4.75V15.3571H1.46154V18.5714ZM5.48077 18.5714H9.13461V15.3571H5.48077V18.5714ZM1.46154 14.6429H4.75V11.0714H1.46154V14.6429ZM5.48077 14.6429H9.13461V11.0714H5.48077V14.6429ZM1.46154 10.3571H4.75V7.14286H1.46154V10.3571ZM9.86538 18.5714H13.5192V15.3571H9.86538V18.5714ZM5.48077 10.3571H9.13461V7.14286H5.48077V10.3571ZM14.25 18.5714H17.5385V15.3571H14.25V18.5714ZM9.86538 14.6429H13.5192V11.0714H9.86538V14.6429ZM5.84615 5V1.78571C5.84615 1.68899 5.81 1.60528 5.73768 1.5346C5.66536 1.46391 5.57973 1.42857 5.48077 1.42857H4.75C4.65104 1.42857 4.5654 1.46391 4.49309 1.5346C4.42077 1.60528 4.38462 1.68899 4.38462 1.78571V5C4.38462 5.09673 4.42077 5.18043 4.49309 5.25112C4.5654 5.3218 4.65104 5.35714 4.75 5.35714H5.48077C5.57973 5.35714 5.66536 5.3218 5.73768 5.25112C5.81 5.18043 5.84615 5.09673 5.84615 5ZM14.25 14.6429H17.5385V11.0714H14.25V14.6429ZM9.86538 10.3571H13.5192V7.14286H9.86538V10.3571ZM14.25 10.3571H17.5385V7.14286H14.25V10.3571ZM14.6154 5V1.78571C14.6154 1.68899 14.5792 1.60528 14.5069 1.5346C14.4346 1.46391 14.349 1.42857 14.25 1.42857H13.5192C13.4203 1.42857 13.3346 1.46391 13.2623 1.5346C13.19 1.60528 13.1538 1.68899 13.1538 1.78571V5C13.1538 5.09673 13.19 5.18043 13.2623 5.25112C13.3346 5.3218 13.4203 5.35714 13.5192 5.35714H14.25C14.349 5.35714 14.4346 5.3218 14.5069 5.25112C14.5792 5.18043 14.6154 5.09673 14.6154 5ZM19 4.28571V18.5714C19 18.9583 18.8554 19.2932 18.5661 19.5759C18.2768 19.8586 17.9343 20 17.5385 20H1.46154C1.06571 20 0.723157 19.8586 0.433894 19.5759C0.144631 19.2932 0 18.9583 0 18.5714V4.28571C0 3.89881 0.144631 3.56399 0.433894 3.28125C0.723157 2.99851 1.06571 2.85714 1.46154 2.85714H2.92308V1.78571C2.92308 1.29464 3.10196 0.874256 3.45974 0.524554C3.81751 0.174851 4.2476 0 4.75 0H5.48077C5.98317 0 6.41326 0.174851 6.77103 0.524554C7.12881 0.874256 7.30769 1.29464 7.30769 1.78571V2.85714H11.6923V1.78571C11.6923 1.29464 11.8712 0.874256 12.229 0.524554C12.5867 0.174851 13.0168 0 13.5192 0H14.25C14.7524 0 15.1825 0.174851 15.5403 0.524554C15.898 0.874256 16.0769 1.29464 16.0769 1.78571V2.85714H17.5385C17.9343 2.85714 18.2768 2.99851 18.5661 3.28125C18.8554 3.56399 19 3.89881 19 4.28571Z' fill='%23333333'/%3E%3C/svg%3E%0A")  97% 50% no-repeat ;
 }
+input[type=date]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
 /* button addToCart */
 .MR_AddToCart-title{
     display: flex;
@@ -380,6 +406,9 @@ h1,h2,h3,a,p,li,ul,button{
     border: none;
     cursor: pointer;
 }
+.MR_button-plus:hover, .MR_button-minus:hover{
+    background: #C34625;
+}
 .MR_button-addToCart{
     width: 354px;
     height: 34px;
@@ -392,21 +421,45 @@ h1,h2,h3,a,p,li,ul,button{
     color: #FFFFFF;
     border: none;
     cursor: pointer;
+    opacity: 50%;
 }
+.MR_button-addToCart-action{
+    width: 354px;
+    height: 34px;
+    background: #EA4A1F;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+.MR_button-addToCart-action:hover{
+    background: #C34625;
+}
+/* .MR_button-plus:active, .MR_button-minus:active{
+    
+} */
 .MR_errorMessage{
+    
     font-style: normal;
     font-weight: normal;
     font-size: 10px;
     line-height: 16px;
     color: #DA4927;
-    height: 17px;
-    margin-left: 7px;
+    visibility: hidden;
+    height: 18px;
+    display: none;
+    align-items: center;
 }
 .MR_errorMessage::before{
-    content: url("data:image/svg+xml;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABPSURBVHgBAUQAu/8B10goYPj4+LAAAAAACwgFUAQICPiwAgAGkAECAP/19vpxAvDwAAABAgD///4AAQAAAAAECwgFUPX2+nEQEAAA/gAIUCWtFm8rF/AZAAAAAElFTkSuQmCC");
-    margin-right: 5px;
-    top: -2px;
+    content: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.3975 0.25L2 1.6475L0.6025 0.25L0.25 0.6025L1.6475 2L0.25 3.3975L0.6025 3.75L2 2.3525L3.3975 3.75L3.75 3.3975L2.3525 2L3.75 0.6025L3.3975 0.25Z' fill='%23DA4927'/%3E%3C/svg%3E");
+    margin-right: 2px;
+    top: -1px;
     position: relative;
+    margin:0 6px 0 1px;
   }
 
 
@@ -439,3 +492,16 @@ textarea::-moz-placeholder {color: #C4C4C4;}
 textarea:-ms-input-placeholder {color: #C4C4C4;}
 textarea::placeholder {color: #C4C4C4;}
 input,textarea {outline:none;}
+[type="date"]::-webkit-input-placeholder,
+::-moz-placeholder,
+:-moz-placeholder,
+:-ms-input-placeholder {opacity: 1; color:#000;} 
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+

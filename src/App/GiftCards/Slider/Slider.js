@@ -12,7 +12,6 @@ function Slider({giftcards,indexCard,getName}) {
 
     useEffect(() => {
       indexCard && indexCard(sliderIndex);
-      getName && getName(nameCard);
     }, [sliderIndex]);
 
 
@@ -20,6 +19,7 @@ function Slider({giftcards,indexCard,getName}) {
     
     const PrevClick = ()=>{
         (sliderIndex <= 0) ? setSliderIndex(giftLength) : setSliderIndex(sliderIndex - 1);
+        
     }
     const NextClick = ()=>{
         (sliderIndex >= giftLength) ? setSliderIndex(sliderIndex - giftLength) : setSliderIndex(sliderIndex + 1);

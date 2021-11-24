@@ -28,16 +28,16 @@ const [cardCost, setCardCost] = useState();
   const giftcardCost = (value)=>{
     setCardCost(value)
   }
+ 
   let page = ()=>{
     return(
       <>
         <GiftCards gift={giftcard} giftcardName={giftcardName} giftcardCost={giftcardCost}/> 
-        <Form fields={giftcard.fields}  button={giftcard.button}cardName={cardName} cardCost={cardCost}/>
+        <Form fields={giftcard.fields}  button={giftcard.button} cardName={cardName} cardCost={cardCost}/>
       </>
     )
   }
 
-  console.log("data", giftcard)
   return (
     <>
       <div className={'MR_content'}>
