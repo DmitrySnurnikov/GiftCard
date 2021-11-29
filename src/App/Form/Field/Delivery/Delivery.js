@@ -11,24 +11,23 @@ function Delivery({name,label,getDelivery,type}) {
             e.target.parentNode.children[0].style.visibility="visible";
                 e.target.parentNode.children[0].style.display="initial";
                 e.target.parentNode.style.marginTop="0";
-                e.currentTarget.style.border="1px solid #EA4A1F"
-                e.target.value = ""
+                e.currentTarget.style.border="1px solid #EA4A1F";
+                e.target.value = "";
         }else{
                 e.target.parentNode.children[0].style.visibility="hidden";
                 e.target.parentNode.children[0].style.display="none";
                 e.target.parentNode.style.marginTop="18px";
-                e.currentTarget.style.border="1px solid #C4C4C4"
+                e.currentTarget.style.border="1px solid #C4C4C4";
         }
     }
     const hideBlock=(e)=>{
         setShowBlockDate(false);
-        getDelivery && getDelivery(e.target.parentNode.innerText)
+        getDelivery && getDelivery(e.target.parentNode.innerText);
         setDeliveryType(e.target.parentNode.innerText);
     }
     const showBlock=(e)=>{
         setDeliveryType(e.target.parentNode.innerText);
-        getDelivery && getDelivery(e.target.parentNode.innerText)
-        setShowBlockDate(true)
+        setShowBlockDate(true);
     }
     let dateBlcok = <input type={'date'}  min={currentDate} onChange={(e)=>dateSelection(e)} required/>
     return (

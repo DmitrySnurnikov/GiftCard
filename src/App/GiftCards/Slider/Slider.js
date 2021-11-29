@@ -8,14 +8,13 @@ let defaultImage = <svg width="50" height="46" viewBox="0 0 50 46" fill="none" x
 </svg>
 function Slider({giftcards,indexCard,getName}) {
     const[sliderIndex,setSliderIndex] = useState(0);
-    const[nameCard,setNameCard] = useState()
+    const[nameCard,setNameCard] = useState();
 
     useEffect(() => {
       indexCard && indexCard(sliderIndex);
     }, [sliderIndex]);
 
-
-    let giftLength = giftcards.length -1;
+      let giftLength = giftcards.length -1;
     
     const PrevClick = ()=>{
         (sliderIndex <= 0) ? setSliderIndex(giftLength) : setSliderIndex(sliderIndex - 1);
@@ -26,7 +25,6 @@ function Slider({giftcards,indexCard,getName}) {
     }
 
     const changeGiftCard = (e)=>{
-        setNameCard(e.target.innerText)
         giftcards.map((card,index)=>{
             if(card.name === e.target.innerText){
                 setSliderIndex(index)
@@ -42,14 +40,14 @@ function Slider({giftcards,indexCard,getName}) {
             </div>
         } 
     })
+    
     let giftTitle = giftcards.map((gift,index)=>{
         return <li key={index}
-            className={(index == sliderIndex) ? "MR_giftcard-slider-active":"MR_giftcard-slider"} 
-            style={{backgroundImage: (!gift.image || gift.image !== "http://...")? `url(${gift.image})` : `url("data:image/svg+xml,%3Csvg width='50' height='46' viewBox='0 0 50 46' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45 9.68421H39.55C39.825 8.93368 40 8.11053 40 7.26316C40 3.24421 36.65 0 32.5 0C29.875 0 27.6 1.30737 26.25 3.26842L25 4.89053L23.75 3.24421C22.4 1.30737 20.125 0 17.5 0C13.35 0 10 3.24421 10 7.26316C10 8.11053 10.175 8.93368 10.45 9.68421H5C2.225 9.68421 0.025 11.8389 0.025 14.5263L0 41.1579C0 43.8453 2.225 46 5 46H45C47.775 46 50 43.8453 50 41.1579V14.5263C50 11.8389 47.775 9.68421 45 9.68421ZM32.5 4.84211C33.875 4.84211 35 5.93158 35 7.26316C35 8.59474 33.875 9.68421 32.5 9.68421C31.125 9.68421 30 8.59474 30 7.26316C30 5.93158 31.125 4.84211 32.5 4.84211ZM17.5 4.84211C18.875 4.84211 20 5.93158 20 7.26316C20 8.59474 18.875 9.68421 17.5 9.68421C16.125 9.68421 15 8.59474 15 7.26316C15 5.93158 16.125 4.84211 17.5 4.84211ZM45 41.1579H5V36.3158H45V41.1579ZM45 29.0526H5V14.5263H17.7L12.5 21.3779L16.55 24.2105L25 13.0737L33.45 24.2105L37.5 21.3779L32.3 14.5263H45V29.0526Z' fill='%23D9DDE3' fill-opacity='0.5'/%3E%3C/svg%3E")` }} 
-            onClick={e=>changeGiftCard(e)}
-            >
-                <label>{gift.name}</label>
-            </li>
+        className={(index == sliderIndex) ? "MR_giftcard-slider-active":"MR_giftcard-slider"} 
+        style={{backgroundImage: (!gift.image || gift.image !== "http://...")? `url(${gift.image})` : `url("data:image/svg+xml,%3Csvg width='50' height='46' viewBox='0 0 50 46' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45 9.68421H39.55C39.825 8.93368 40 8.11053 40 7.26316C40 3.24421 36.65 0 32.5 0C29.875 0 27.6 1.30737 26.25 3.26842L25 4.89053L23.75 3.24421C22.4 1.30737 20.125 0 17.5 0C13.35 0 10 3.24421 10 7.26316C10 8.11053 10.175 8.93368 10.45 9.68421H5C2.225 9.68421 0.025 11.8389 0.025 14.5263L0 41.1579C0 43.8453 2.225 46 5 46H45C47.775 46 50 43.8453 50 41.1579V14.5263C50 11.8389 47.775 9.68421 45 9.68421ZM32.5 4.84211C33.875 4.84211 35 5.93158 35 7.26316C35 8.59474 33.875 9.68421 32.5 9.68421C31.125 9.68421 30 8.59474 30 7.26316C30 5.93158 31.125 4.84211 32.5 4.84211ZM17.5 4.84211C18.875 4.84211 20 5.93158 20 7.26316C20 8.59474 18.875 9.68421 17.5 9.68421C16.125 9.68421 15 8.59474 15 7.26316C15 5.93158 16.125 4.84211 17.5 4.84211ZM45 41.1579H5V36.3158H45V41.1579ZM45 29.0526H5V14.5263H17.7L12.5 21.3779L16.55 24.2105L25 13.0737L33.45 24.2105L37.5 21.3779L32.3 14.5263H45V29.0526Z' fill='%23D9DDE3' fill-opacity='0.5'/%3E%3C/svg%3E")` }} 
+        onClick={e=>changeGiftCard(e)}>
+            <label>{gift.name}</label>
+        </li>        
     })
     return (
         <>

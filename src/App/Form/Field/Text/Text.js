@@ -42,7 +42,8 @@ function Text({fields,getDelivery,getDisabledBtn,getTextarea}) {
                 e.target.parentNode.children[1].style.visibility="hidden";
                 e.target.parentNode.children[1].style.display="none";
                 e.target.parentNode.children[0].style.marginBottom="18px";
-                e.currentTarget.style.border="1px solid #C4C4C4"
+                e.currentTarget.style.border="1px solid #C4C4C4";
+
             }else{
                 e.target.parentNode.children[1].style.visibility="visible";
                 e.target.parentNode.children[1].style.display="initial";
@@ -76,7 +77,12 @@ function Text({fields,getDelivery,getDisabledBtn,getTextarea}) {
                 lea.style.border="1px solid #EA4A1F";
                 if(lea.value.length>0){
                     lea.style.border="1px solid #C4C4C4";
-                    setCheckBtn(true);
+                    if(checkBtn == false){
+                        setCheckBtn(true);
+                    }else{
+                        getDisabledBtn && getDisabledBtn(checkBtn);
+                    }
+                    
                 }
             }
             
@@ -87,11 +93,15 @@ function Text({fields,getDelivery,getDisabledBtn,getTextarea}) {
     }
     const getDeliveryType=(delivery)=>{
         getDelivery && getDelivery(delivery);
-        getDisabledBtn && getDisabledBtn(checkBtn);
+        if(checkBtn == false){
+            setCheckBtn(true);
+        }else{
+            getDisabledBtn && getDisabledBtn(checkBtn);
+        }
     }
     let unitBlock = fields.map((field,index)=>{
         if(field.label === 'Message'){
-            return <li key={index} className={"MR_field"}>
+            return <li key={index} className={"MR_field MR_textarea"}>
             <label>{field.label}</label>
             <textarea type={field.type} placeholder={field.placeholder} name={field.name} id={field.name} pattern={"[A-Za-z]"} onBlur={(e)=>getValueTextare(e)} required={field.required}/>
         </li>
